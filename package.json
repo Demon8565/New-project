@@ -1,0 +1,12 @@
+{
+  "name": "sol-sniper-filter",
+  "version": "0.1.0",
+  "description": "Phase 1: Solana new-pool detection + safety filter (paper trading only)",
+  "main": "sniper_filter.js",
+  "scripts": {
+    "start": "node sniper_filter.js"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.95.0"
+  }
+}
