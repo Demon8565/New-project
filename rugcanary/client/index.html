@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RugCanary — Solana token safety checker</title>
+  <meta name="description" content="Paste a Solana token address, get a clear plain-language safety report in seconds." />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">🐤</span>
+      <span class="brand-name">RugCanary</span>
+    </div>
+    <p class="tagline">Paste a Solana token address. Get a clear safety report.</p>
+  </header>
+
+  <main>
+    <section class="scan-section" aria-label="Token scanner">
+      <form id="scan-form" class="scan-form" autocomplete="off">
+        <input
+          id="address-input"
+          type="text"
+          name="address"
+          placeholder="Paste a token mint address, e.g. EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+          spellcheck="false"
+          required
+        />
+        <button type="submit" id="scan-button">Scan</button>
+      </form>
+      <p id="scan-error" class="scan-error" role="alert" hidden></p>
+    </section>
+
+    <section id="result-section" class="result-section" hidden aria-live="polite">
+      <div id="result-card" class="result-card">
+        <div class="result-header">
+          <div class="result-address" id="result-address"></div>
+          <div class="result-headline" id="result-headline"></div>
+          <div class="result-sublabel" id="result-sublabel"></div>
+        </div>
+        <ul class="checks-list" id="checks-list"></ul>
+        <div class="result-footer">
+          <span>rugcanary.app</span>
+          <span id="result-timestamp"></span>
+        </div>
+      </div>
+      <p class="screenshot-hint">Screenshot this card to share.</p>
+    </section>
+
+    <section class="coming-soon" aria-label="Coming soon">
+      <h2>Coming soon</h2>
+      <p class="coming-soon-intro">RugCanary is expanding beyond one-time scans into always-on protection.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">📡</span>
+          <h3>Real-time wallet monitoring</h3>
+          <p>Get alerted the moment a token you hold shows new risk signals.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🕵️</span>
+          <h3>Deployer wallet alerts</h3>
+          <p>Track deployer wallets and get warned when they launch again.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🐋</span>
+          <h3>Whale movement alerts</h3>
+          <p>Know when large holders start moving or dumping a token.</p>
+        </div>
+      </div>
+
+      <form id="waitlist-form" class="waitlist-form">
+        <input
+          id="waitlist-email"
+          type="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+        />
+        <button type="submit" id="waitlist-button">Get notified when this launches</button>
+      </form>
+      <p id="waitlist-message" class="waitlist-message" role="status" hidden></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>RugCanary is an informational tool, not financial advice. Always do your own research.</p>
+  </footer>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

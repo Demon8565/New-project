@@ -1,0 +1,304 @@
+:root {
+  --bg: #0b0e14;
+  --surface: #131822;
+  --surface-raised: #1a2130;
+  --border: #262f42;
+  --text: #e8ecf4;
+  --text-dim: #9aa5b8;
+  --brand: #f2c94c;
+  --pass: #3ecf8e;
+  --fail: #f2555a;
+  --warn: #f2a03d;
+  --radius: 14px;
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  text-align: center;
+  padding: 3rem 1.5rem 1.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.brand-mark {
+  font-size: 1.75rem;
+}
+
+.tagline {
+  color: var(--text-dim);
+  margin-top: 0.5rem;
+  font-size: 1.05rem;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.scan-form {
+  display: flex;
+  gap: 0.6rem;
+}
+
+#address-input {
+  flex: 1;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+#address-input:focus {
+  outline: 2px solid var(--brand);
+  outline-offset: 1px;
+}
+
+#scan-button,
+#waitlist-button {
+  padding: 0.9rem 1.4rem;
+  border-radius: 10px;
+  border: none;
+  background: var(--brand);
+  color: #1a1400;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.05s ease, opacity 0.15s ease;
+}
+
+#scan-button:hover,
+#waitlist-button:hover {
+  opacity: 0.9;
+}
+
+#scan-button:active,
+#waitlist-button:active {
+  transform: scale(0.98);
+}
+
+#scan-button:disabled,
+#waitlist-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.scan-error {
+  color: var(--fail);
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+}
+
+.result-section {
+  margin-top: 2rem;
+}
+
+.result-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+
+.result-card[data-overall="low"] {
+  border-color: var(--pass);
+  box-shadow: 0 0 0 1px rgba(62, 207, 142, 0.15);
+}
+
+.result-card[data-overall="medium"] {
+  border-color: var(--warn);
+  box-shadow: 0 0 0 1px rgba(242, 160, 61, 0.15);
+}
+
+.result-card[data-overall="high"] {
+  border-color: var(--fail);
+  box-shadow: 0 0 0 1px rgba(242, 85, 90, 0.15);
+}
+
+.result-address {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  word-break: break-all;
+}
+
+.result-headline {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 0.4rem;
+}
+
+.result-sublabel {
+  color: var(--text-dim);
+  margin-top: 0.15rem;
+  font-size: 0.95rem;
+}
+
+.checks-list {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.check-item {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  background: var(--surface-raised);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+}
+
+.check-icon {
+  font-size: 1.1rem;
+  line-height: 1.3rem;
+}
+
+.check-item[data-pass="true"] .check-icon {
+  color: var(--pass);
+}
+
+.check-item[data-pass="false"] .check-icon {
+  color: var(--fail);
+}
+
+.check-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.check-detail {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-top: 0.15rem;
+}
+
+.result-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.screenshot-hint {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  margin-top: 0.75rem;
+}
+
+.coming-soon {
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.coming-soon h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+}
+
+.coming-soon-intro {
+  color: var(--text-dim);
+  margin-top: 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.9rem;
+  margin: 1.5rem 0;
+}
+
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+}
+
+.feature-icon {
+  font-size: 1.4rem;
+}
+
+.feature-card h3 {
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0.3rem;
+}
+
+.feature-card p {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin: 0;
+}
+
+.waitlist-form {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+#waitlist-email {
+  flex: 1;
+  min-width: 220px;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.waitlist-message {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--pass);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 480px) {
+  .scan-form,
+  .waitlist-form {
+    flex-direction: column;
+  }
+}
